@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.XR; 
 
 
 public class HandPresence : MonoBehaviour
@@ -30,8 +30,7 @@ public class HandPresence : MonoBehaviour
             Debug.Log(item.name + item.characteristics);
         }
 
-        if (devices.Count > 0)
-        {
+        if (devices.Count > 0) {
 
             targetDevice = devices[0];
             GameObject prefab = controllerPrefabs.Find(controller => controller.name == targetDevice.name);
@@ -40,8 +39,7 @@ public class HandPresence : MonoBehaviour
 
                 spawnedController = Instantiate(prefab, transform);
             }
-            else
-            {
+            else {
 
                 Debug.Log("Your controller doesnt exist in the system because it's shit m8");
                 spawnedHandModel = Instantiate(controllerPrefabs[0], transform);
@@ -53,23 +51,19 @@ public class HandPresence : MonoBehaviour
 
     }
 
-    void UpdateHandAnimation()
-    {
+    void UpdateHandAnimation() {
 
-        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
-        {
+        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue)){
 
             handAnimaor.SetFloat("Trigger", triggerValue);
         }
 
-        else
-        {
+        else {
 
             handAnimaor.SetFloat("Trigger", 0);
         }
 
-        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float gripValue))
-        {
+        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float gripValue)){
 
             handAnimaor.SetFloat("Grip", gripValue);
         }
@@ -91,14 +85,13 @@ public class HandPresence : MonoBehaviour
             spawnedHandModel.SetActive(false);
             spawnedController.SetActive(true);
         }
-        else
-        {
+        else {
 
             spawnedHandModel.SetActive(true);
             spawnedController.SetActive(false);
             UpdateHandAnimation();
         }
-
-
+       
+       
     }
 }
