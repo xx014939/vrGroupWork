@@ -5,36 +5,55 @@ using UnityEngine.Video;
 
 public class videoScript : MonoBehaviour
 {
-    public Camera fpsCam;
+    //public Camera fpsCam;
     public GameObject button;
     public VideoPlayer video;
-    
+    bool mouseHover;
+
     // Start is called before the first frame update
     void Start()
     {
-        video.Stop();      
+        video.Stop();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
 
-            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
-            {
-                if (hit.transform.name == "PlayVideo")
-                {
-                    Debug.Log(hit.transform.name);
-                    video.Play();   
-                }
-            }
-        }
-
-        else if (Input.GetMouseButtonUp(0))
-        {
+            Debug.Log("PLAY VIDEO");
 
         }
+           
+    }
+
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        Debug.Log("Mouse is no longer on GameObject.");
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        /*   if (Input.GetMouseButtonDown(0))
+           {
+               RaycastHit hit;
+
+               if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
+               {
+                   if (hit.transform.name == "PlayVideo")
+                   {
+                       Debug.Log(hit.transform.name);
+                       video.Play();   
+                   }
+               }
+           }
+
+           else if (Input.GetMouseButtonUp(0))
+           {
+
+           }*/
+
     }
 }
