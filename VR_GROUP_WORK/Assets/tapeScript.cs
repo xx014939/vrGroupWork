@@ -5,10 +5,13 @@ using UnityEngine.Audio;
 
 public class tapeScript : MonoBehaviour
 {
-    public AudioSource audio;
     public AudioSource audio1;
     public AudioSource audio2;
     public AudioSource audio3;
+    public AudioSource audio4;
+    public AudioSource audio5;
+    public AudioSource audio6;
+    public AudioSource audio7;
     public Camera fpsCam;
 
     // Start is called before the first frame update
@@ -28,22 +31,37 @@ public class tapeScript : MonoBehaviour
             {
                 if (hit.transform.name == "tape1")
                 {
-                    audio.Play();
-                }
-
-                if (hit.transform.name == "tape2")
-                {
                     audio1.Play();
                 }
 
-                if (hit.transform.name == "tape3")
+                else if (hit.transform.name == "tape2")
                 {
                     audio2.Play();
                 }
 
-                if (hit.transform.name == "tape4")
+                else if(hit.transform.name == "tape3")
                 {
                     audio3.Play();
+                }
+
+                else if(hit.transform.name == "tape4")
+                {
+                    audio4.Play();
+                }
+
+                else if (hit.transform.name == "tape5")
+                {
+                    audio5.Play();
+                }
+
+                else if (hit.transform.name == "tape6")
+                {
+                    audio6.Play();
+                }
+
+                else if (hit.transform.name == "tape7")
+                {
+                    audio7.Play();
                 }
             }
         }
