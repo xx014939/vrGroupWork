@@ -10,6 +10,7 @@ public class HandPresence : MonoBehaviour
     public InputDeviceCharacteristics controllerCharacteristics;
     public List<GameObject> controllerPrefabs;
     public GameObject handModelPrefab;
+    public GameObject rightHandRayCaster;
 
     private InputDevice targetDevice;
     private GameObject spawnedController;
@@ -85,11 +86,16 @@ public class HandPresence : MonoBehaviour
             spawnedHandModel.SetActive(false);
             spawnedController.SetActive(true);
         }
-        else if (spawnedHandModel){
+        else if (spawnedHandModel)
+        {
 
             spawnedHandModel.SetActive(true);
             spawnedController.SetActive(false);
             UpdateHandAnimation();
+        }
+        else {
+
+            Destroy(rightHandRayCaster);
         }
        
        
