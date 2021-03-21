@@ -15,7 +15,7 @@ public class LightSwitch : MonoBehaviour
     public GameObject light4;
     private Light light4_comp;
 
-    private bool lightSwitch = true; 
+    private bool lightSwitch;
 
 
 
@@ -25,12 +25,18 @@ public class LightSwitch : MonoBehaviour
         light2_comp = light2.GetComponent<Light>();
         light3_comp = light3.GetComponent<Light>();
         light4_comp = light4.GetComponent<Light>();
+
+        lightSwitch = true;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Entered");
+    }
+
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("Stayed");
-
         if (other.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E - Pressed");
@@ -38,20 +44,14 @@ public class LightSwitch : MonoBehaviour
             if (lightSwitch == true)
             {
                 Debug.Log("Switching off");
-                light1_comp.enabled = false;
-                light2_comp.enabled = false;
-                light3_comp.enabled = false;
-                light4_comp.enabled = false;
-                lightSwitch = false;
+                switchOff();
             }
-            else
+            
+            if (lightSwitch == false)
             {
                 Debug.Log("Switching on");
-                light1_comp.enabled = true;
-                light2_comp.enabled = true;
-                light3_comp.enabled = true;
-                light4_comp.enabled = true;
-                lightSwitch = true;
+                switchOn();
+                
             }
         }
     }
@@ -61,5 +61,25 @@ public class LightSwitch : MonoBehaviour
         Debug.Log("Left lol");
 
 
+    }
+
+    void switchOff()
+    {
+        light1_comp.enabled = false;
+        light2_comp.enabled = false;
+        light3_comp.enabled = false;
+        light4_comp.enabled = false;
+
+        lightSwitch = false;
+    }
+
+    void switchOn()
+    {
+        light1_comp.enabled = true;
+        light2_comp.enabled = true;
+        light3_comp.enabled = true;
+        light4_comp.enabled = true;
+
+        lightSwitch = true;
     }
 }
