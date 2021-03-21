@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class cameraControls : MonoBehaviour
 {
+    // Player body.
     public Transform playerBody;
 
-    public float xRotation = 0f;
-
-    public float yRotation = 0f;
-
+    // rotation vector.
     Vector2 rotation = new Vector2(0, 0);
 
+    // Mouse sensitivity.
     public float mouseSensitivity = 2f;
 
     void Awake()
@@ -22,21 +21,29 @@ public class cameraControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Locks the cursor to the centre of the screen.
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Hides curser from view.
         Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Y axis rotation.
         rotation.y += Input.GetAxis("Mouse X");
+
+        // X axis rotation.
         rotation.x += -Input.GetAxis("Mouse Y");
 
+        // Limit how far player can look up.
         if (rotation.x > 40f)
         {
             rotation.x = 40f;
         }
 
+        // Limit how far player can look down.
         else if (rotation.x < -40f)
         {
             rotation.x = -40f;
@@ -44,34 +51,4 @@ public class cameraControls : MonoBehaviour
 
         transform.eulerAngles = (Vector2)rotation * mouseSensitivity;
     }
-
-    /*
-    public float speed = 20f;
-
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
-
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
-
-    float xRotation = 0f;
-    float yRotation = 0f;
-
-    public float mouseSpeed = 100f;
-    public Transform playerBody;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float mouseX = (Input.mousePosition.x / Screen.width) - 0.5f;
-        float mouseY = (Input.mousePosition.y / Screen.height) - 0.5f;
-        transform.localRotation = Quaternion.Euler(new Vector4(-1f * (mouseY * 180f), mouseX * 360f, transform.localRotation.z));
-    }
-    */
 }
