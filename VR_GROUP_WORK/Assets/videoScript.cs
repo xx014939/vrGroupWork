@@ -8,7 +8,8 @@ public class videoScript : MonoBehaviour
     public Camera fpsCam;
     public GameObject button;
     public VideoPlayer video;
-    bool mouseHover;
+    bool play = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,8 +45,17 @@ public class videoScript : MonoBehaviour
             {
                 if (hit.transform.name == "PlayVideo")
                 {
-                    Debug.Log(hit.transform.name);
-                    video.Play();   
+                    if (play == false)
+                    {
+                        video.Play();
+                        play = true;
+                    }
+
+                    else
+                    {
+                        video.Pause();
+                        play = false;
+                    }
                 }
             }
         }

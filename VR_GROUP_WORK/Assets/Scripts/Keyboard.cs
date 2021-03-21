@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Keyboard : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 10f;
 
     public float speedH = 2.0f;
     public float speedV = 2.0f;
