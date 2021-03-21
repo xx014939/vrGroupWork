@@ -93,11 +93,12 @@ public class HandPresence : MonoBehaviour
             spawnedController.SetActive(false);
             UpdateHandAnimation();
         }
-        else {
+        else
+        {
 
             Destroy(rightHandRayCaster);
         }
-       
-       
+
+
     }
 }
