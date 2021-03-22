@@ -10,7 +10,10 @@ public class HandPresence : MonoBehaviour
     public InputDeviceCharacteristics controllerCharacteristics;
     public List<GameObject> controllerPrefabs;
     public GameObject handModelPrefab;
+
     public GameObject rightHandRayCaster;
+    public GameObject vrPlayerObject;
+    public GameObject pcPlayerObject;
 
     private InputDevice targetDevice;
     private GameObject spawnedController;
@@ -88,7 +91,7 @@ public class HandPresence : MonoBehaviour
         }
         else if (spawnedHandModel)
         {
-
+            Destroy(pcPlayerObject);
             spawnedHandModel.SetActive(true);
             spawnedController.SetActive(false);
             UpdateHandAnimation();
@@ -97,6 +100,7 @@ public class HandPresence : MonoBehaviour
         {
 
             Destroy(rightHandRayCaster);
+            Destroy(vrPlayerObject);
         }
 
 
