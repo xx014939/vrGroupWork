@@ -28,58 +28,17 @@ public class LightSwitch : MonoBehaviour
 
         lightSwitch = true;
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Entered");
-    }
-
-
+    
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("E - Pressed");
-
-            if (lightSwitch == true)
-            {
-                Debug.Log("Switching off");
-                switchOff();
-            }
-            
-            if (lightSwitch == false)
-            {
-                Debug.Log("Switching on");
-                switchOn();
-                
-            }
+            light1_comp.enabled = false;
+            light2_comp.enabled = false;
+            light3_comp.enabled = false;
+            light4_comp.enabled = false;
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Left lol");
-
-
-    }
-
-    void switchOff()
-    {
-        light1_comp.enabled = false;
-        light2_comp.enabled = false;
-        light3_comp.enabled = false;
-        light4_comp.enabled = false;
-
-        lightSwitch = false;
-    }
-
-    void switchOn()
-    {
-        light1_comp.enabled = true;
-        light2_comp.enabled = true;
-        light3_comp.enabled = true;
-        light4_comp.enabled = true;
-
-        lightSwitch = true;
-    }
+  
 }
