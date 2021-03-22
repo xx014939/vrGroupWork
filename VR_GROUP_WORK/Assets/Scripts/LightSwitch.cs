@@ -32,7 +32,6 @@ public class LightSwitch : MonoBehaviour
     {
 
 
-
         if (lightSwitch)
         {
 
