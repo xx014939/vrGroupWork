@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Group_4_Project
   productName: VR_GROUP_WORK
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -125,7 +125,11 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -63094699520505264, guid: 6dc4b0e9b3efa9c47805b95ed8dafe55, type: 2}
+  - {fileID: 2807835808002211359, guid: f208287afe03fef448b468b6cf194038, type: 2}
+  - {fileID: 11400000, guid: 2bc310d91146b8c44b581073876a67dc, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
